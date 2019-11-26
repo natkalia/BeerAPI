@@ -1,0 +1,13 @@
+# Compiled output
+dist/
+
+# Dependencies 
+node_modules
+
+# IDE - VisualStudioCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history
