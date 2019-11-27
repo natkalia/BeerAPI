@@ -1,4 +1,4 @@
-// search results
+// search results - warning! this function takes array as a parameter
 
 const searchReasultsBox = document.getElementById('search-results');
 
