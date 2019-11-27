@@ -36,7 +36,7 @@ function fetchBeers(beerProperty) {
                 results.push(beer);
             }
         })
-        setResults(results);
+        setResults(results); // WARNING! this function will be added in PR about setting search results
     }).catch( error => {
         console.log('Błąd!', error);
     });
