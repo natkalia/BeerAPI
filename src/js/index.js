@@ -1,3 +1,5 @@
+import '../assets/style.css';
+
 // search results - warning! this function takes array as a parameter
 
 const searchReasultsBox = document.getElementById('search-results');
@@ -32,12 +34,17 @@ const setResults = searchResults => {
         const foodPairingList = document.createElement('ul');
         const foodPairingListTitle = document.createElement('p');
         const searchResultContent = `
-            <h3 id="title">${name}</h3>
-            <p id="abv">ABV: ${abv}</p>
-            <p id="ibu">IBU: ${ibu}</p>
-            <p id="tagline">Tagline: ${tagline}</p>
-            <p id="description">Description: ${description}</p>
-            <p id="brewers-tip">Brewers tip:${brewers_tips}</p>
+            <div id="basic-info">
+                <h3 id="title">${name}</h3>
+                <p id="abv">ABV: ${abv}</p>
+                <p id="ibu">IBU: ${ibu}</p>
+                <button id="show-more">Show more</button>
+            </div>
+            <div id="more-info" class="hide">
+                <p id="tagline">Tagline: ${tagline}</p>
+                <p id="description">Description: ${description}</p>
+                <p id="brewers-tip">Brewers tip:${brewers_tips}</p>
+            </div>
         `;
 
         foodPairingListTitle.innerText = "Food pairing";
@@ -50,8 +57,14 @@ const setResults = searchResults => {
         
         searchResultItem.innerHTML = searchResultContent;
         searchReasultsBox.appendChild(searchResultItem);
-        searchResultItem.appendChild(foodPairingList);
-        searchResultItem.insertBefore(foodPairingListTitle, foodPairingList);
+        const moreInfo = document.getElementById('more-info');
+        moreInfo.appendChild(foodPairingList);
+        moreInfo.insertBefore(foodPairingListTitle, foodPairingList);
+        const showMore = document.getElementById('show-more');
+        showMore.addEventListener('click', () => {            
+            moreInfo.classList.toggle('hide');
+        })
+
     });
 }
 setResults(searchResults);
