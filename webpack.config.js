@@ -9,6 +9,10 @@ module.exports = {
     filename: 'index.js',
     path: distDir
   },
+  plugins: [new HtmlWebpackPlugin({
+    filename: 'index.html',
+    template: 'src/index.html'
+  })],
   mode: 'development',
   devtool: 'eval',
   devServer: {
@@ -32,11 +36,9 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          'file-loader'
-        ]
+        use: ['file-loader']
     }
     ]
   },
-  plugins: [new HtmlWebpackPlugin()]
+  
 };
