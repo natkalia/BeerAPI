@@ -4,18 +4,6 @@ import '../assets/style.css';
 
 const searchReasultsBox = document.getElementById('search-results');
 
-const searchResults = [ {
-    abv: 4.5,
-    brewers_tips: "The earthy and floral aromas from the hops can be overpowering. Drop a little Cascade in at the end of the boil to lift the profile with a bit of citrus.",
-    contributed_by: "Sam Mason <samjbmason>",
-    description: "A light, crisp and bitter IPA brewed with English and American hops. A small batch brewed only once.",
-    food_pairing: ["Spicy chicken tikka masala", "Grilled chicken quesadilla", "Caramel toffee cake"],
-    ibu: 60,
-    id: 1,
-    tagline: "Post Modern Classic. Spiky. Tropical. Hoppy.",
-    image_url: "https://images.punkapi.com/v2/keg.png",
-    name: "Buzz",
-}]
 
 const setResults = searchResults => {
     searchReasultsBox.innerHTML = null;
@@ -56,7 +44,6 @@ const setResults = searchResults => {
         searchReasultsBox.insertBefore(foodPairingListTitle, foodPairingList);
     });
 }
-setResults(searchResults);
 
 //this fetch is needed in slider
 
