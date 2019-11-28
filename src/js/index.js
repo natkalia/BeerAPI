@@ -22,11 +22,11 @@ const setResults = searchResults => {
     searchResults.map(result => {
         const {
             name,
+            image_url,
             abv,
             ibu,
             tagline,
             description,
-            brewers_tips,
             food_pairing
         } = result;
 
@@ -34,19 +34,14 @@ const setResults = searchResults => {
         const foodPairingList = document.createElement('ul');
         const foodPairingListTitle = document.createElement('p');
         const searchResultContent = `
-            <div id="basic-info">
-                <h3 id="title">${name}</h3>
-                <p id="abv">ABV: ${abv}</p>
-                <p id="ibu">IBU: ${ibu}</p>
-                <button id="show-more">Show more</button>
-            </div>
-            <div id="more-info" class="hide">
-                <p id="tagline">Tagline: ${tagline}</p>
-                <p id="description">Description: ${description}</p>
-                <p id="brewers-tip">Brewers tip:${brewers_tips}</p>
-            </div>
+            <img id="beer-img" src= ${image_url} height="200" />
+            <h3 id="title">${name}</h3>
+            <p id="abv">ABV: ${abv}</p>
+            <p id="ibu">IBU: ${ibu}</p>            
+            <p id="tagline">Tagline: ${tagline}</p>
+            <p id="description">Description: ${description}</p>
         `;
-
+        // height is added only for now (waiting for styling)
         foodPairingListTitle.innerText = "Food pairing";
         foodPairingList.id = "food-pairing";
         food_pairing.map((food) => {
@@ -57,14 +52,8 @@ const setResults = searchResults => {
         
         searchResultItem.innerHTML = searchResultContent;
         searchReasultsBox.appendChild(searchResultItem);
-        const moreInfo = document.getElementById('more-info');
-        moreInfo.appendChild(foodPairingList);
-        moreInfo.insertBefore(foodPairingListTitle, foodPairingList);
-        const showMore = document.getElementById('show-more');
-        showMore.addEventListener('click', () => {            
-            moreInfo.classList.toggle('hide');
-        })
-
+        searchReasultsBox.appendChild(foodPairingList);
+        searchReasultsBox.insertBefore(foodPairingListTitle, foodPairingList);
     });
 }
 setResults(searchResults);
