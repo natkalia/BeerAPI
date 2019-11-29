@@ -60,16 +60,29 @@ function fetchRandomBeer() {
     });
 };
 
-//this fetch is needed in searching by description
+//Searching by description
 
-function fetchBeers() {
+const searchByDescriptionInput = document.getElementById('search-by-description-input');
+const searchByDescriptionBtn = document.getElementById('search-by-description-btn');
+
+searchByDescriptionBtn.addEventListener(
+    'click', () => fetchBeers(searchByDescriptionInput.value)
+);
+
+function fetchBeers(beerProperty) {
     fetch('https://api.punkapi.com/v2/beers?page=1&per_page=80')
     .then(response => {
         return response.json();
     })
-    .then(data => { 
-        console.log(data);
-        //add here what we want to do with data
+    .then(data => {
+        let results = [];
+        data.filter(beer => {
+            const description = beer.description.toLowerCase();
+            if(description.includes(beerProperty.toLowerCase())){
+                results.push(beer);
+            }
+        })
+        setResults(results); // WARNING! this function will be added in PR about setting search results
     }).catch( error => {
         console.log('Błąd!', error);
     });
