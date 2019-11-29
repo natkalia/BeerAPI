@@ -161,6 +161,18 @@ function showUserIbuChoice(values) {
     rangeSliderIbuChoice.innerHTML = `Your choice: ${values}`;   
 }
 
+// ABV, IBU search - create function to get user input from range sliders to be used in fetch 
+function getUserAbvInputs(values) {
+    choosenMinAbvValue = values[0];
+    choosenMaxAbvValue = values[1];
+    return choosenMinAbvValue, choosenMaxAbvValue;
+};
+function getUserIbuInputs(values) {
+    choosenMinIbuValue = values[0];
+    choosenMaxIbuValue = values[1];
+    return choosenMinIbuValue, choosenMaxIbuValue;
+};
+
 // this fetch is needed in searching by abv
 
 //  choosenMinAbvValue - choosen min abv value, choosenMaxAbvValue - choosen max abv value
