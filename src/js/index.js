@@ -1,4 +1,49 @@
 
+// search results - warning! this function takes array as a parameter
+
+const searchReasultsBox = document.getElementById('search-results');
+
+
+const setResults = searchResults => {
+    searchReasultsBox.innerHTML = null;
+    searchResults.map(result => {
+        const {
+            name,
+            image_url,
+            abv,
+            ibu,
+            tagline,
+            description,
+            food_pairing
+        } = result;
+
+        const searchResultItem = document.createElement('li');
+        const foodPairingList = document.createElement('ul');
+        const foodPairingListTitle = document.createElement('p');
+        const searchResultContent = `
+            <img id="beer-img" src= ${image_url} height="200" />
+            <h3 id="title">${name}</h3>
+            <p id="abv">ABV: ${abv}</p>
+            <p id="ibu">IBU: ${ibu}</p>            
+            <p id="tagline">Tagline: ${tagline}</p>
+            <p id="description">Description: ${description}</p>
+        `;
+        // height is added only for now (waiting for styling)
+        foodPairingListTitle.innerText = "Food pairing";
+        foodPairingList.id = "food-pairing";
+        food_pairing.map((food) => {
+            const foodItem = document.createElement('li');
+            foodItem.innerText = food;
+            foodPairingList.appendChild(foodItem);
+        });
+        
+        searchResultItem.innerHTML = searchResultContent;
+        searchReasultsBox.appendChild(searchResultItem);
+        searchReasultsBox.appendChild(foodPairingList);
+        searchReasultsBox.insertBefore(foodPairingListTitle, foodPairingList);
+    });
+}
+
 //this fetch is needed in slider
 
 function fetchRandomBeer() {
