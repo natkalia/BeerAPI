@@ -173,6 +173,16 @@ function getUserIbuInputs(values) {
     return choosenMinIbuValue, choosenMaxIbuValue;
 };
 
+// ABV, IBU search - listen for update values on range slider, handle them 
+rangeSliderAbvBar.noUiSlider.on('update', (values) => {
+    showUserAbvChoice(values);
+    getUserAbvInputs(values);
+});
+rangeSliderIbuBar.noUiSlider.on('update', (values) => {
+    showUserIbuChoice(values);
+    getUserIbuInputs(values);
+});
+
 // this fetch is needed in searching by abv
 
 //  choosenMinAbvValue - choosen min abv value, choosenMaxAbvValue - choosen max abv value
