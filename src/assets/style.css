@@ -45,3 +45,54 @@ h4 {
 h5 {
   font-size: 1.4rem;
 }
+
+/*dodaje tu klasę ogólną container, żeby smy mieli spójne szerokości maxymalne */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.search-results {
+}
+
+.search-results__item {
+  list-style-type: none;
+  border: 2px solid var(--c-accent);
+}
+
+.search-results__img-wrapper {
+  background-color: var(--c-main);
+  height: 100%;
+}
+
+.search-results__img {
+
+}
+
+.search-results__title {
+}
+
+.search-results__abv {
+}
+
+.search-results__ibu {
+}
+
+.search-results__tagline {
+}
+
+@media (min-width: 600px) {
+  .search-results {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .search-results__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

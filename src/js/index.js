@@ -1,8 +1,42 @@
+import '../assets/style.css';
 
 // search results - warning! this function takes array as a parameter
 
 const searchReasultsBox = document.getElementById('search-results');
 
+const mockDataToSearchResults = [{
+    name: "Jakas nazwa",
+    image_url: 'https://picsum.photos/200',
+    abv: 5,
+    ibu: 10,
+    tagline: 'jakis text',
+    description: 'Just add your desired image size (width & height) after our URL, and youll get a random image.',
+    food_pairing: ['cos', 'cos', 'cos innego']
+}, {
+    name: "Jakas nazwa",
+    image_url: 'https://picsum.photos/200',
+    abv: 5,
+    ibu: 10,
+    tagline: 'jakis text',
+    description: 'Just add your desired image size (width & height) after our URL, and youll get a random image.',
+    food_pairing: ['cos', 'cos', 'cos innego']
+}, {
+    name: "Jakas nazwa",
+    image_url: 'https://picsum.photos/200',
+    abv: 5,
+    ibu: 10,
+    tagline: 'jakis text',
+    description: 'Just add your desired image size (width & height) after our URL, and youll get a random image.',
+    food_pairing: ['cos', 'cos', 'cos innego']
+}, {
+    name: "Jakas nazwa",
+    image_url: 'https://picsum.photos/200',
+    abv: 5,
+    ibu: 10,
+    tagline: 'jakis text',
+    description: 'Just add your desired image size (width & height) after our URL, and youll get a random image.',
+    food_pairing: ['cos', 'cos', 'cos innego']
+}];
 
 const setResults = searchResults => {
     searchReasultsBox.innerHTML = null;
@@ -21,12 +55,14 @@ const setResults = searchResults => {
         const foodPairingList = document.createElement('ul');
         const foodPairingListTitle = document.createElement('p');
         const searchResultContent = `
-            <img id="beer-img" src= ${image_url} height="200" />
-            <h3 id="title">${name}</h3>
-            <p id="abv">ABV: ${abv}</p>
-            <p id="ibu">IBU: ${ibu}</p>            
-            <p id="tagline">Tagline: ${tagline}</p>
-            <p id="description">Description: ${description}</p>
+            <div class="search-results__img-wrapper">
+                <img class="search-results__img" src= ${image_url} />
+            </div>
+            <h3 class="search-results__title">${name}</h3>
+            <p class="search-results__abv">ABV: ${abv}</p>
+            <p class="search-results__ibu">IBU: ${ibu}</p>            
+            <p class="search-results__tagline">Tagline: ${tagline}</p>
+            <p class="search-results__description">Description: ${description}</p>
         `;
         // height is added only for now (waiting for styling)
         foodPairingListTitle.innerText = "Food pairing";
@@ -38,11 +74,14 @@ const setResults = searchResults => {
         });
         
         searchResultItem.innerHTML = searchResultContent;
+        searchResultItem.classList.add("search-results__item");
         searchReasultsBox.appendChild(searchResultItem);
-        searchReasultsBox.appendChild(foodPairingList);
-        searchReasultsBox.insertBefore(foodPairingListTitle, foodPairingList);
+        searchResultItem.appendChild(foodPairingList);
+        searchResultItem.insertBefore(foodPairingListTitle, foodPairingList);
     });
 }
+
+setResults(mockDataToSearchResults);
 
 //this fetch is needed in slider
 
