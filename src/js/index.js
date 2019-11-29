@@ -123,6 +123,26 @@ let choosenMinAbvValue,
     choosenMinIbuValue,
     choosenMaxIbuValue;
 
+// ABV, IBU search - create two range sliders
+noUiSlider.create(rangeSliderAbvBar, {
+  start: [3, 30],
+  connect: true,
+  range: {
+    min: 0.5,
+    max: 56
+  },
+  step: 0.5
+});
+noUiSlider.create(rangeSliderIbuBar, {
+  start: [30, 530],
+  connect: true,
+  range: {
+    min: 0,
+    max: 1500
+  },
+  step: 1
+});
+  
 // this fetch is needed in searching by abv
 
 //  choosenMinAbvValue - choosen min abv value, choosenMaxAbvValue - choosen max abv value
