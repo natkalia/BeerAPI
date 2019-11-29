@@ -107,6 +107,22 @@ function fetchBeerByName(choosenBeerName){
     });
 };
 
+// Searching by ABV,IBU
+
+// ABV, IBU search - get target elements to make range sliders
+const rangeSliderAbvBar = document.getElementById('range-slider-abv__bar');
+const rangeSliderAbvChoice = document.getElementById('range-slider-abv__choice');
+const searchByAbvBtn = document.getElementById('search-by-abv__btn');
+const rangeSliderIbuBar = document.getElementById('range-slider-ibu__bar');
+const rangeSliderIbuChoice = document.getElementById('range-slider-ibu__choice');
+const searchByIbuBtn = document.getElementById('search-by-ibu__btn');
+
+// ABV, IBU search - create variables to store user input from range sliders
+let choosenMinAbvValue, 
+    choosenMaxAbvValue,
+    choosenMinIbuValue,
+    choosenMaxIbuValue;
+
 // this fetch is needed in searching by abv
 
 //  choosenMinAbvValue - choosen min abv value, choosenMaxAbvValue - choosen max abv value
@@ -140,3 +156,7 @@ function fetchBeerByIbu(choosenMinIbuValue, choosenMaxIbuValue){
         console.log('Błąd!', error);
     });
 };
+
+// ABV, IBU search - listen for user to click search button and call fetch functions 
+searchByAbvBtn.addEventListener('click', () => fetchBeerByAbv(choosenMinAbvValue, choosenMaxAbvValue));
+searchByIbuBtn.addEventListener('click', () => fetchBeerByIbu(choosenMinIbuValue, choosenMaxIbuValue));
