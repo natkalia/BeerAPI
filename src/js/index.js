@@ -1,3 +1,6 @@
+// Imports for range sliders used in ABV, IBU search
+import * as noUiSlider from 'nouislider/distribute/nouislider.js';
+import 'nouislider/distribute/nouislider.css';
 
 // search results - warning! this function takes array as a parameter
 
