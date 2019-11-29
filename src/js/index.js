@@ -1,4 +1,3 @@
-import '../assets/style.css';
 
 // search results - warning! this function takes array as a parameter
 
