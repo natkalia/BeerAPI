@@ -110,12 +110,12 @@ function fetchBeerByName(choosenBeerName){
 // Searching by ABV,IBU
 
 // ABV, IBU search - get target elements to make range sliders
-const rangeSliderAbvBar = document.getElementById('range-slider-abv__bar');
-const rangeSliderAbvChoice = document.getElementById('range-slider-abv__choice');
-const searchByAbvBtn = document.getElementById('search-by-abv__btn');
-const rangeSliderIbuBar = document.getElementById('range-slider-ibu__bar');
-const rangeSliderIbuChoice = document.getElementById('range-slider-ibu__choice');
-const searchByIbuBtn = document.getElementById('search-by-ibu__btn');
+const rangeSliderAbvBar = document.getElementById('range-slider-abv-bar');
+const rangeSliderAbvChoice = document.getElementById('range-slider-abv-choice');
+const searchByAbvBtn = document.getElementById('search-by-abv-btn');
+const rangeSliderIbuBar = document.getElementById('range-slider-ibu-bar');
+const rangeSliderIbuChoice = document.getElementById('range-slider-ibu-choice');
+const searchByIbuBtn = document.getElementById('search-by-ibu-btn');
 
 // ABV, IBU search - create variables to store user input from range sliders
 let choosenMinAbvValue, 
