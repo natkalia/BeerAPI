@@ -142,7 +142,25 @@ noUiSlider.create(rangeSliderIbuBar, {
   },
   step: 1
 });
-  
+
+// ABV, IBU search - create functions to show user search criteria next to range slider
+function showUserAbvChoice(values) {
+    values = values.map(element => {
+        return element
+            .substring(0, element.length-1)
+            .concat('%');
+    });
+    values = values.join(' - ');
+    rangeSliderAbvChoice.innerHTML = `Your choice: ${values}`;
+}
+function showUserIbuChoice(values) {
+    values = values.map(element => {
+        return element.substring(0, element.length-3);
+    });
+    values = values.join(' - ');
+    rangeSliderIbuChoice.innerHTML = `Your choice: ${values}`;   
+}
+
 // this fetch is needed in searching by abv
 
 //  choosenMinAbvValue - choosen min abv value, choosenMaxAbvValue - choosen max abv value
