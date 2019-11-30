@@ -1,3 +1,5 @@
+import '../assets/style.css';
+
 // header hamburger menu behavior
 const navInner = document.getElementById('nav-inner');
 const navToggler = document.getElementById('nav-toggler');
