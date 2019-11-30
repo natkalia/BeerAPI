@@ -138,7 +138,7 @@ noUiSlider.create(rangeSliderIbuBar, {
   connect: true,
   range: {
     min: 0,
-    max: 1500
+    max: 1158
   },
   step: 1
 });
