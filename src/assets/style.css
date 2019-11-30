@@ -45,3 +45,56 @@ h4 {
 h5 {
   font-size: 1.4rem;
 }
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--c-neutral-dark);
+  color: var(--c-neutral-light);
+}
+
+/* Header logo */
+.header-logo {
+  flex: 30%;
+}
+
+.header-logo-image {
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.header-logo-image__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: var(--c-neutral-dark);
+}
+
+/* Header welcome */
+.header-welcome {
+  flex: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-inner {
+  max-width: 800px;
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
