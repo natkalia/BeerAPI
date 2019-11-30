@@ -66,13 +66,9 @@ h5 {
   width: 200px;
   margin: 0 auto;
   padding: 5px;
-}
-
-.header-logo-image__img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  background-size: cover;
   background-color: var(--c-neutral-dark);
+  background-image: url('../assets/images/beer-img.png');
 }
 
 /* Header welcome */
