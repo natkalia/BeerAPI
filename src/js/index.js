@@ -1,3 +1,17 @@
+// header hamburger menu behavior
+const navInner = document.getElementById('nav-inner');
+const navToggler = document.getElementById('nav-toggler');
+const navTitle = document.getElementById('nav-title');
+
+navToggler.addEventListener('click', function() {
+  navInner.classList.toggle('active');
+  navToggler.classList.toggle('open');
+  if (navTitle.innerText === "I feel like searching for a beer by...") {
+    navTitle.innerText = "";
+  } else {
+    navTitle.innerText = "I feel like searching for a beer by...";
+  }
+});
 
 // search results - warning! this function takes array as a parameter
 
