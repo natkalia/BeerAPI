@@ -52,32 +52,32 @@ const setResults = searchResults => {
         } = result;
 
         const searchResultItem = document.createElement('li');
-        const foodPairingList = document.createElement('ul');
-        const foodPairingListTitle = document.createElement('p');
+        const foodPairingList = food_pairing.map((food) => {
+            return `<li class="search-results__food-list-item">${food}</li>`;
+        }).join('');
+        
         const searchResultContent = `
             <div class="search-results__img-wrapper">
                 <img class="search-results__img" src= ${image_url} />
             </div>
-            <h3 class="search-results__title">${name}</h3>
-            <p class="search-results__abv">ABV: ${abv}</p>
-            <p class="search-results__ibu">IBU: ${ibu}</p>            
-            <p class="search-results__tagline">Tagline: ${tagline}</p>
-            <p class="search-results__description">Description: ${description}</p>
+            <div class="search-results__properties">
+                <h3 class="search-results__title">${name}</h3>         
+                <p class="search-results__tagline">Tagline: ${tagline}</p>
+                <p class="search-results__description">Description: ${description}</p>
+                <p class="search-results__abv">ABV: ${abv}</p>
+                <p class="search-results__ibu">IBU: ${ibu}</p>   
+                <div class="search-results__food">
+                    <p class="search-results__food-title">Food pairing</p>
+                    <ul class="search-results__food-list">
+                        ${foodPairingList}
+                    </ul>
+                </div>
+            </div>
         `;
-        // height is added only for now (waiting for styling)
-        foodPairingListTitle.innerText = "Food pairing";
-        foodPairingList.id = "food-pairing";
-        food_pairing.map((food) => {
-            const foodItem = document.createElement('li');
-            foodItem.innerText = food;
-            foodPairingList.appendChild(foodItem);
-        });
         
         searchResultItem.innerHTML = searchResultContent;
         searchResultItem.classList.add("search-results__item");
         searchReasultsBox.appendChild(searchResultItem);
-        searchResultItem.appendChild(foodPairingList);
-        searchResultItem.insertBefore(foodPairingListTitle, foodPairingList);
     });
 }
 
