@@ -4,40 +4,6 @@ import '../assets/style.css';
 
 const searchReasultsBox = document.getElementById('search-results');
 
-const mockDataToSearchResults = [{
-    name: "Jakas nazwa",
-    image_url: 'https://picsum.photos/200',
-    abv: 5,
-    ibu: 10,
-    tagline: 'jakis text',
-    description: 'Just add your desired image size (width & height) after our URL, and youll get a random image.',
-    food_pairing: ['cos', 'cos', 'cos innego']
-}, {
-    name: "Jakas nazwa",
-    image_url: 'https://picsum.photos/200',
-    abv: 5,
-    ibu: 10,
-    tagline: 'jakis text',
-    description: 'Just add your desired image size (width & height) after our URL, and youll get a random image.',
-    food_pairing: ['cos', 'cos', 'cos innego']
-}, {
-    name: "Jakas nazwa",
-    image_url: 'https://picsum.photos/200',
-    abv: 5,
-    ibu: 10,
-    tagline: 'jakis text',
-    description: 'Just add your desired image size (width & height) after our URL, and youll get a random image.',
-    food_pairing: ['cos', 'cos', 'cos innego']
-}, {
-    name: "Jakas nazwa",
-    image_url: 'https://picsum.photos/200',
-    abv: 5,
-    ibu: 10,
-    tagline: 'jakis text',
-    description: 'Just add your desired image size (width & height) after our URL, and youll get a random image.',
-    food_pairing: ['cos', 'cos', 'cos innego']
-}];
-
 const setResults = searchResults => {
     searchReasultsBox.innerHTML = null;
     searchResults.map(result => {
@@ -62,12 +28,12 @@ const setResults = searchResults => {
             </div>
             <div class="search-results__properties">
                 <h3 class="search-results__title">${name}</h3>         
-                <p class="search-results__tagline">Tagline: ${tagline}</p>
-                <p class="search-results__description">Description: ${description}</p>
-                <p class="search-results__abv">ABV: ${abv}</p>
-                <p class="search-results__ibu">IBU: ${ibu}</p>   
+                <p class="search-results__tagline">${tagline}</p>
+                <p class="search-results__description">${description}</p>
+                <p class="search-results__abv">abv: ${abv}%</p>
+                <p class="search-results__ibu">ibu: ${ibu}</p>   
                 <div class="search-results__food">
-                    <p class="search-results__food-title">Food pairing</p>
+                    <p class="search-results__food-title">Food pairing advice:</p>
                     <ul class="search-results__food-list">
                         ${foodPairingList}
                     </ul>
