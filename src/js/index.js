@@ -133,4 +133,4 @@ function showSlider() {
   });
 }
 
-showSlider();
+getBeersForSlider().then(beers => setSliderContent(beers)).then(() => showSlider());
