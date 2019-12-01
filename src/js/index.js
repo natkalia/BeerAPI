@@ -43,8 +43,8 @@ function fetchBeerByName(choosenBeerName) {
 
 function fetchBeerByAbv(choosenMinAbvValue, choosenMaxAbvValue) {
   fetch(
-      `https://api.punkapi.com/v2/beers?abv_gt=${choosenMinAbvValue}&abv_lt=${choosenMaxAbvValue}`
-    )
+    `https://api.punkapi.com/v2/beers?abv_gt=${choosenMinAbvValue}&abv_lt=${choosenMaxAbvValue}`
+  )
     .then(response => {
       return response.json();
     })
@@ -63,8 +63,8 @@ function fetchBeerByAbv(choosenMinAbvValue, choosenMaxAbvValue) {
 
 function fetchBeerByIbu(choosenMinIbuValue, choosenMaxIbuValue) {
   fetch(
-      `https://api.punkapi.com/v2/beers?ibu_gt=${choosenMinIbuValue}&ibu_lt=${choosenMaxIbuValue}`
-    )
+    `https://api.punkapi.com/v2/beers?ibu_gt=${choosenMinIbuValue}&ibu_lt=${choosenMaxIbuValue}`
+  )
     .then(response => {
       return response.json();
     })
@@ -77,60 +77,70 @@ function fetchBeerByIbu(choosenMinIbuValue, choosenMaxIbuValue) {
     });
 }
 
-// slider
-
-async function fetchRandomBeer() {
-  try {
-    const response = await fetch("https://api.punkapi.com/v2/beers/random");
-    const data = await response.json();
-    return data;
-  } catch (err) {
-    console.log("Error!", error);
+class Slider {
+  constructor() {
+    this.init();
   }
-};
 
-async function getBeersForSlider() {
-  const beers = [];
-  for (let i = 0; i < 3; i++) {
-    const beer = await fetchRandomBeer();
-    beers.push(...beer);
+  async fetchRandomBeer() {
+    try {
+      const response = await fetch("https://api.punkapi.com/v2/beers/random");
+      const data = await response.json();
+      return data;
+    } catch (err) {
+      console.log("Error!", error);
+    }
   }
-  return beers
-}
 
-async function setSliderContent(beers) {
-  const slides = document.querySelectorAll(".slider__item-content");
-  slides.forEach((slide, i) => {
-    const frag = document.createDocumentFragment();
+  async getBeersForSlider() {
+    const beers = [];
+    for (let i = 0; i < 3; i++) {
+      const beer = await this.fetchRandomBeer();
+      beers.push(...beer);
+    }
+    return beers;
+  }
 
-    const title = document.createElement("h1");
-    title.innerText = beers[i].name;
-    title.classList.add("slider__item-title");
-    frag.appendChild(title);
+  async setSliderContent(beers) {
+    const slides = document.querySelectorAll(".slider__item-content");
+    slides.forEach((slide, i) => {
+      const frag = document.createDocumentFragment();
 
-    const subtitle = document.createElement("h3");
-    subtitle.innerText = beers[i].tagline;
-    subtitle.classList.add("slider__item-subtitle");
-    frag.appendChild(subtitle);
+      const title = document.createElement("h1");
+      title.innerText = beers[i].name;
+      title.classList.add("slider__item-title");
+      frag.appendChild(title);
 
-    const description = document.createElement("p");
-    description.innerText = beers[i].description;
-    description.classList.add("slider__item-description");
-    frag.appendChild(description);
+      const subtitle = document.createElement("h3");
+      subtitle.innerText = beers[i].tagline;
+      subtitle.classList.add("slider__item-subtitle");
+      frag.appendChild(subtitle);
 
-    slide.appendChild(frag);
-  });
-}
+      const description = document.createElement("p");
+      description.innerText = beers[i].description;
+      description.classList.add("slider__item-description");
+      frag.appendChild(description);
 
-function showSlider() {
-  $(document).ready(function () {
-    $(".slider").slick({
-      autoplay: true,
-      speed: 1000,
-      autoplaySpeed: 2000,
-      dots: true
+      slide.appendChild(frag);
     });
-  });
+  }
+
+  showSlider() {
+    $(document).ready(function() {
+      $(".slider").slick({
+        autoplay: true,
+        speed: 1000,
+        autoplaySpeed: 2000,
+        dots: true
+      });
+    });
+  }
+
+  init() {
+    this.getBeersForSlider()
+      .then(beers => this.setSliderContent(beers))
+      .then(() => this.showSlider());
+  }
 }
 
-getBeersForSlider().then(beers => setSliderContent(beers)).then(() => showSlider());
+const slider = new Slider();
