@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Calistoga|Open+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:400,700|Open+Sans:400,400i&display=swap');
 
 :root {
-  --f-special: "Calistoga", cursive;
+  --f-special: "Comfortaa", cursive;
   --f-default: "Open Sans", sans-serif;
   --c-main: #ffd700;
   --c-secondary: #ff9305;
@@ -49,9 +49,9 @@ h5 {
 }
 
 .container {
-  max-width: 1100px;
   margin: 0 auto;
-  padding: 20px;
+  width: 90%;
+  max-width: 1024px;
 }
 
 .search-results__item {
@@ -161,6 +161,6 @@ h5 {
 
   .search-results__item {
     margin: 10px;
-    width: 500px;
+    width: 490px;
   }
 }
