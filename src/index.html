@@ -17,9 +17,6 @@
     </div>
     <div class="header-welcome">
       <h1 class="header-welcome__title">The Beer Finder App</h1>
-      <h2 class="header-welcome__subtitle">
-        We know everything about beers!
-      </h2>
       <nav class="nav">
         <h2 class="nav__title">I feel like searching for a beer by...</h2>
         <div class="nav-inner">
@@ -42,7 +39,14 @@
   <main>
     <div class="container">
 
-      <div class="slider slick">
+      <section class="introduction">
+        <h2 class="introduction__title">We know everything about beers!</h2>
+        <p class="introduction__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ut, ad ducimus
+          dolores aperiam repudiandae numquam perspiciatis. Quasi voluptate, pariatur enim quisquam quaerat optio
+          reprehenderit!</p>
+      </section>
+      
+      <section class="slider slick">
         <div class="slider__item-1 slide">
           <div class="slider__item-content"></div>
         </div>
@@ -52,29 +56,39 @@
         <div class="slider__item-3 slide is-hidden">
           <div class="slider__item-content"></div>
         </div>
-      </div>
+      </section>
       
       <div id="search-by-description">
-      <h3>Search beer by description</h3>
-      <input id="search-by-description-input" type="text"/>
-      <button id="search-by-description-btn">Search</button>
+        <h3>Search beer by description</h3>
+        <input id="search-by-description-input" type="text"/>
+        <button id="search-by-description-btn">Search</button>
+      </div>
+      
+      <div id="search-by-abv">
+        <h3>Alcohol by volume</h3>
+        <div id="range-slider-abv-choice"></div>
+        <div id="range-slider-abv-bar"></div>
+        <button id="search-by-abv-btn">Search</button>
+      </div>
+    
+      <div id="search-by-ibu">
+        <h3>International Bittering Units</h3>
+        <div id="range-slider-ibu-choice"></div>
+        <div id="range-slider-ibu-bar"></div>
+        <button id="search-by-ibu-btn">Search</button>
+      </div>
+
+      <ul id="search-results" class="search-results"></ul>
+        
     </div>
-
-    <ul id="search-results"></ul>
-
-    </div> 
   </main>
 
   <footer class="footer">
     <div class="footer-about">
-      <p class="footer-about__message">
-        This app was created as CodersCamp 2019 project by a team from Warsaw
-        Group. We have chosen using Punk API to create an app for beer lovers.
-      </p>
-      <p class="footer-about__message">
-        No beer <i class="footer-about__icon fas fa-beer"></i> has been harmed
-        during the development of this application
-      </p>
+      <p class="footer-about__message">This app was created as CodersCamp 2019 project by a team from Warsaw Group. We
+        have chosen using Punk API to create an app for beer lovers.</p>
+      <p class="footer-about__message">No beer <i class="footer-about__icon fas fa-beer"></i> has been harmed during the
+        development of this application</p>
       <div class="footer-about-links">
         <a class="footer-about__link" href="https://punkapi.com/">Punk API</a>
         <a class="footer-about__link" href="https://coderscamp.edu.pl/">CodersCamp</a>

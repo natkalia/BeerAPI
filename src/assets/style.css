@@ -10,6 +10,8 @@
   --c-neutral-mid-light: #a9a9a9;
   --c-neutral-mid-dark: #545454;
   --c-neutral-dark: #333;
+  --c-shadow: #d0b78f;
+  --border-radius: 10px;
 }
 
 * {
@@ -90,3 +92,114 @@ h5 {
 .slider__item-subtitle {}
 
 .slider__item-description {}
+
+.search-results__item {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0; 
+  list-style-type: none;
+  border: 3px solid var(--c-accent);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.search-results__img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 25%;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  background-color: var(--c-main);
+}
+
+.search-results__img {
+  max-width: 100%;
+}
+
+.search-results__properties {
+  padding: 20px;
+  flex-basis: 75%;
+}
+
+.search-results__title {
+  display: inline-block;
+  border-bottom: 3px solid var(--c-secondary);
+  padding: 0 30px 5px 3px;
+  margin-bottom: 10px;
+  text-shadow: -2px 2px 1px var(--c-shadow);
+}
+
+.search-results__tagline {
+  color: var(--c-secondary);
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.search-results__description {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.search-results__abv, .search-results__ibu {
+  display: inline-block;
+  color: var(--c-secondary);
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+}
+
+.search-results__abv {
+  margin-right: 65px;
+}
+
+.search-results__food {
+  padding: 15px 20px;
+  background-color: var(--c-accent);
+  color: #fff;
+  border-radius: var(--border-radius);
+}
+
+.search-results__food-title {
+  font-size: 1.3rem;
+  display: inline-block;
+  position: relative;
+  border-bottom: 2px solid #ffff;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+.search-results__food-list {
+  margin-left: 20px;
+}
+
+.search-results__food-list-item {
+  font-size: 1.3rem;
+}
+
+@media (min-width: 500px) {  
+  .search-results__img-wrapper {
+    width: 220px;
+  }
+  
+  .search-results__img {
+    max-width: 50%;
+  }
+}
+
+@media (min-width: 760px) {
+  .search-results {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .search-results__item {
+    margin: 10px 0;
+    width: 49%;
+  }
+}
