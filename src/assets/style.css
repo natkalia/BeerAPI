@@ -65,11 +65,23 @@ h5 {
   display: none;
 }
 
-.slider__item-1 {}
+.slider__item-1 {
+  background-image: url("./images/slide-img-1.jpg");
+  background-position: center center;
+  background-size: cover;
+}
 
-.slider__item-2 {}
+.slider__item-2 {
+  background-image: url("./images/slide-img-2.jpg");
+  background-position: center center;
+  background-size: cover;
+}
 
-.slider__item-3 {}
+.slider__item-3 {
+  background-image: url("./images/slide-img-3.jpg");
+  background-position: center center;
+  background-size: cover;
+}
 
 .slider__item-content {}
 
