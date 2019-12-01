@@ -91,3 +91,16 @@ function fetchBeerByIbu(choosenMinIbuValue, choosenMaxIbuValue) {
       console.log("Błąd!", error);
     });
 }
+
+function showSlider() {
+  $(document).ready(function () {
+    $(".slider").slick({
+      autoplay: true,
+      speed: 1000,
+      autoplaySpeed: 2000,
+      dots: true
+    });
+  });
+}
+
+showSlider();
