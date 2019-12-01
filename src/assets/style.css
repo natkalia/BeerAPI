@@ -156,11 +156,11 @@ h5 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
   }
 
   .search-results__item {
-    margin: 10px;
-    width: 490px;
+    margin: 10px 0;
+    width: 49%;
   }
 }
