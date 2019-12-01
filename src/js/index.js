@@ -98,6 +98,30 @@ async function getBeersForSlider() {
   return beers
 }
 
+async function setSliderContent(beers) {
+  const slides = document.querySelectorAll(".slider__item-content");
+  slides.forEach((slide, i) => {
+    const frag = document.createDocumentFragment();
+
+    const title = document.createElement("h1");
+    title.innerText = beers[i].name;
+    title.classList.add("slider__item-title");
+    frag.appendChild(title);
+
+    const subtitle = document.createElement("h3");
+    subtitle.innerText = beers[i].tagline;
+    subtitle.classList.add("slider__item-subtitle");
+    frag.appendChild(subtitle);
+
+    const description = document.createElement("p");
+    description.innerText = beers[i].description;
+    description.classList.add("slider__item-description");
+    frag.appendChild(description);
+
+    slide.appendChild(frag);
+  });
+}
+
 function showSlider() {
   $(document).ready(function () {
     $(".slider").slick({
