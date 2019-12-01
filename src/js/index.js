@@ -5,25 +5,25 @@ import "slick-carousel/slick/slick-theme.css";
 
 // search results - warning! this function takes array as a parameter
 
-const searchReasultsBox = document.getElementById('search-results');
+const searchReasultsBox = document.getElementById("search-results");
 
 const setResults = searchResults => {
-    searchReasultsBox.innerHTML = null;
-    searchResults.map(result => {
-        const {
-            name,
-            image_url,
-            abv,
-            ibu,
-            tagline,
-            description,
-            food_pairing
-        } = result;
+  searchReasultsBox.innerHTML = null;
+  searchResults.map(result => {
+    const {
+      name,
+      image_url,
+      abv,
+      ibu,
+      tagline,
+      description,
+      food_pairing
+    } = result;
 
-        const searchResultItem = document.createElement('li');
-        const foodPairingList = document.createElement('ul');
-        const foodPairingListTitle = document.createElement('p');
-        const searchResultContent = `
+    const searchResultItem = document.createElement("li");
+    const foodPairingList = document.createElement("ul");
+    const foodPairingListTitle = document.createElement("p");
+    const searchResultContent = `
             <img id="beer-img" src= ${image_url} height="200" />
             <h3 id="title">${name}</h3>
             <p id="abv">ABV: ${abv}</p>
@@ -31,47 +31,52 @@ const setResults = searchResults => {
             <p id="tagline">Tagline: ${tagline}</p>
             <p id="description">Description: ${description}</p>
         `;
-        // height is added only for now (waiting for styling)
-        foodPairingListTitle.innerText = "Food pairing";
-        foodPairingList.id = "food-pairing";
-        food_pairing.map((food) => {
-            const foodItem = document.createElement('li');
-            foodItem.innerText = food;
-            foodPairingList.appendChild(foodItem);
-        });
-        
-        searchResultItem.innerHTML = searchResultContent;
-        searchReasultsBox.appendChild(searchResultItem);
-        searchReasultsBox.appendChild(foodPairingList);
-        searchReasultsBox.insertBefore(foodPairingListTitle, foodPairingList);
+    // height is added only for now (waiting for styling)
+    foodPairingListTitle.innerText = "Food pairing";
+    foodPairingList.id = "food-pairing";
+    food_pairing.map(food => {
+      const foodItem = document.createElement("li");
+      foodItem.innerText = food;
+      foodPairingList.appendChild(foodItem);
     });
-}
+
+    searchResultItem.innerHTML = searchResultContent;
+    searchReasultsBox.appendChild(searchResultItem);
+    searchReasultsBox.appendChild(foodPairingList);
+    searchReasultsBox.insertBefore(foodPairingListTitle, foodPairingList);
+  });
+};
 
 //Searching by description
 
-const searchByDescriptionInput = document.getElementById('search-by-description-input');
-const searchByDescriptionBtn = document.getElementById('search-by-description-btn');
+const searchByDescriptionInput = document.getElementById(
+  "search-by-description-input"
+);
+const searchByDescriptionBtn = document.getElementById(
+  "search-by-description-btn"
+);
 
-searchByDescriptionBtn.addEventListener(
-    'click', () => fetchBeers(searchByDescriptionInput.value)
+searchByDescriptionBtn.addEventListener("click", () =>
+  fetchBeers(searchByDescriptionInput.value)
 );
 
 function fetchBeers(beerProperty) {
-    fetch('https://api.punkapi.com/v2/beers?page=1&per_page=80')
+  fetch("https://api.punkapi.com/v2/beers?page=1&per_page=80")
     .then(response => {
       return response.json();
     })
     .then(data => {
-        let results = [];
-        data.filter(beer => {
-            const description = beer.description.toLowerCase();
-            if(description.includes(beerProperty.toLowerCase())){
-                results.push(beer);
-            }
-        })
-        setResults(results); // WARNING! this function will be added in PR about setting search results
-    }).catch( error => {
-        console.log('Błąd!', error);
+      let results = [];
+      data.filter(beer => {
+        const description = beer.description.toLowerCase();
+        if (description.includes(beerProperty.toLowerCase())) {
+          results.push(beer);
+        }
+      });
+      setResults(results); // WARNING! this function will be added in PR about setting search results
+    })
+    .catch(error => {
+      console.log("Błąd!", error);
     });
 }
 
@@ -133,6 +138,8 @@ function fetchBeerByIbu(choosenMinIbuValue, choosenMaxIbuValue) {
     });
 }
 
+// slider
+
 class Slider {
   constructor() {
     this.init();
@@ -162,7 +169,7 @@ class Slider {
     slides.forEach((slide, i) => {
       const frag = document.createDocumentFragment();
 
-      const title = document.createElement("h1");
+      const title = document.createElement("h2");
       title.innerText = beers[i].name;
       title.classList.add("slider__item-title");
       frag.appendChild(title);
