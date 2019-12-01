@@ -1,3 +1,4 @@
+import '../assets/style.css';
 // Imports for range sliders used in ABV, IBU search
 import * as noUiSlider from 'nouislider/distribute/nouislider.js';
 import 'nouislider/distribute/nouislider.css';
@@ -5,7 +6,6 @@ import 'nouislider/distribute/nouislider.css';
 // search results - warning! this function takes array as a parameter
 
 const searchReasultsBox = document.getElementById('search-results');
-
 
 const setResults = searchResults => {
     searchReasultsBox.innerHTML = null;
@@ -21,29 +21,32 @@ const setResults = searchResults => {
         } = result;
 
         const searchResultItem = document.createElement('li');
-        const foodPairingList = document.createElement('ul');
-        const foodPairingListTitle = document.createElement('p');
+        const foodPairingList = food_pairing.map((food) => {
+            return `<li class="search-results__food-list-item">${food}</li>`;
+        }).join('');
+        
         const searchResultContent = `
-            <img id="beer-img" src= ${image_url} height="200" />
-            <h3 id="title">${name}</h3>
-            <p id="abv">ABV: ${abv}</p>
-            <p id="ibu">IBU: ${ibu}</p>            
-            <p id="tagline">Tagline: ${tagline}</p>
-            <p id="description">Description: ${description}</p>
+            <div class="search-results__img-wrapper">
+                <img class="search-results__img" src= ${image_url} />
+            </div>
+            <div class="search-results__properties">
+                <h3 class="search-results__title">${name}</h3>         
+                <p class="search-results__tagline">${tagline}</p>
+                <p class="search-results__description">${description}</p>
+                <p class="search-results__abv">abv: ${abv}%</p>
+                <p class="search-results__ibu">ibu: ${ibu}</p>   
+                <div class="search-results__food">
+                    <p class="search-results__food-title">Food pairing advice:</p>
+                    <ul class="search-results__food-list">
+                        ${foodPairingList}
+                    </ul>
+                </div>
+            </div>
         `;
-        // height is added only for now (waiting for styling)
-        foodPairingListTitle.innerText = "Food pairing";
-        foodPairingList.id = "food-pairing";
-        food_pairing.map((food) => {
-            const foodItem = document.createElement('li');
-            foodItem.innerText = food;
-            foodPairingList.appendChild(foodItem);
-        });
         
         searchResultItem.innerHTML = searchResultContent;
+        searchResultItem.classList.add("search-results__item");
         searchReasultsBox.appendChild(searchResultItem);
-        searchReasultsBox.appendChild(foodPairingList);
-        searchReasultsBox.insertBefore(foodPairingListTitle, foodPairingList);
     });
 }
 
@@ -84,7 +87,7 @@ function fetchBeers(beerProperty) {
                 results.push(beer);
             }
         })
-        setResults(results); // WARNING! this function will be added in PR about setting search results
+        setResults(results);
     }).catch( error => {
         console.log('Błąd!', error);
     });
