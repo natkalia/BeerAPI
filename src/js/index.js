@@ -3,21 +3,6 @@ import "slick-carousel";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-//this fetch is needed in slider
-
-function fetchRandomBeer() {
-  fetch('https://api.punkapi.com/v2/beers/random')
-    .then(response => {
-      return response.json();
-    })
-    .then(data => {
-      console.log(data);
-      //add here what we want to do with data
-    }).catch(error => {
-      console.log('Błąd!', error);
-    });
-};
-
 //this fetch is needed in searching by description
 
 function fetchBeers() {
@@ -90,6 +75,27 @@ function fetchBeerByIbu(choosenMinIbuValue, choosenMaxIbuValue) {
     .catch(error => {
       console.log("Błąd!", error);
     });
+}
+
+// slider
+
+async function fetchRandomBeer() {
+  try {
+    const response = await fetch("https://api.punkapi.com/v2/beers/random");
+    const data = await response.json();
+    return data;
+  } catch (err) {
+    console.log("Error!", error);
+  }
+};
+
+async function getBeersForSlider() {
+  const beers = [];
+  for (let i = 0; i < 3; i++) {
+    const beer = await fetchRandomBeer();
+    beers.push(...beer);
+  }
+  return beers
 }
 
 function showSlider() {
