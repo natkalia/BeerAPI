@@ -119,13 +119,7 @@ const setResults = searchResults => {
         searchResultItem.classList.add("search-results__item");
         searchReasultsBox.appendChild(searchResultItem);
     });
-
-    searchResultItem.innerHTML = searchResultContent;
-    searchReasultsBox.appendChild(searchResultItem);
-    searchReasultsBox.appendChild(foodPairingList);
-    searchReasultsBox.insertBefore(foodPairingListTitle, foodPairingList);
-  });
-};
+}
 
 //Searching by description
 
