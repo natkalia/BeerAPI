@@ -14,11 +14,13 @@ navToggler.addEventListener('click', function() {
     navTitle.innerText = "I feel like searching for a beer by...";
   }
 });
+// Imports for range sliders used in ABV, IBU search
+import * as noUiSlider from 'nouislider/distribute/nouislider.js';
+import 'nouislider/distribute/nouislider.css';
 
 // search results - warning! this function takes array as a parameter
 
 const searchReasultsBox = document.getElementById('search-results');
-
 
 const setResults = searchResults => {
     searchReasultsBox.innerHTML = null;
@@ -34,29 +36,32 @@ const setResults = searchResults => {
         } = result;
 
         const searchResultItem = document.createElement('li');
-        const foodPairingList = document.createElement('ul');
-        const foodPairingListTitle = document.createElement('p');
+        const foodPairingList = food_pairing.map((food) => {
+            return `<li class="search-results__food-list-item">${food}</li>`;
+        }).join('');
+        
         const searchResultContent = `
-            <img id="beer-img" src= ${image_url} height="200" />
-            <h3 id="title">${name}</h3>
-            <p id="abv">ABV: ${abv}</p>
-            <p id="ibu">IBU: ${ibu}</p>            
-            <p id="tagline">Tagline: ${tagline}</p>
-            <p id="description">Description: ${description}</p>
+            <div class="search-results__img-wrapper">
+                <img class="search-results__img" src= ${image_url} />
+            </div>
+            <div class="search-results__properties">
+                <h3 class="search-results__title">${name}</h3>         
+                <p class="search-results__tagline">${tagline}</p>
+                <p class="search-results__description">${description}</p>
+                <p class="search-results__abv">abv: ${abv}%</p>
+                <p class="search-results__ibu">ibu: ${ibu}</p>   
+                <div class="search-results__food">
+                    <p class="search-results__food-title">Food pairing advice:</p>
+                    <ul class="search-results__food-list">
+                        ${foodPairingList}
+                    </ul>
+                </div>
+            </div>
         `;
-        // height is added only for now (waiting for styling)
-        foodPairingListTitle.innerText = "Food pairing";
-        foodPairingList.id = "food-pairing";
-        food_pairing.map((food) => {
-            const foodItem = document.createElement('li');
-            foodItem.innerText = food;
-            foodPairingList.appendChild(foodItem);
-        });
         
         searchResultItem.innerHTML = searchResultContent;
+        searchResultItem.classList.add("search-results__item");
         searchReasultsBox.appendChild(searchResultItem);
-        searchReasultsBox.appendChild(foodPairingList);
-        searchReasultsBox.insertBefore(foodPairingListTitle, foodPairingList);
     });
 }
 
@@ -97,7 +102,7 @@ function fetchBeers(beerProperty) {
                 results.push(beer);
             }
         })
-        setResults(results); // WARNING! this function will be added in PR about setting search results
+        setResults(results);
     }).catch( error => {
         console.log('Błąd!', error);
     });
@@ -120,36 +125,108 @@ function fetchBeerByName(choosenBeerName){
     });
 };
 
-// this fetch is needed in searching by abv
+// Searching by ABV,IBU
 
-//  choosenMinAbvValue - choosen min abv value, choosenMaxAbvValue - choosen max abv value
+// ABV, IBU search - get target elements to make range sliders
+const rangeSliderAbvBar = document.getElementById('range-slider-abv-bar');
+const rangeSliderAbvChoice = document.getElementById('range-slider-abv-choice');
+const searchByAbvBtn = document.getElementById('search-by-abv-btn');
+const rangeSliderIbuBar = document.getElementById('range-slider-ibu-bar');
+const rangeSliderIbuChoice = document.getElementById('range-slider-ibu-choice');
+const searchByIbuBtn = document.getElementById('search-by-ibu-btn');
 
+// ABV, IBU search - create variables to store user input from range sliders
+let choosenMinAbvValue, 
+    choosenMaxAbvValue,
+    choosenMinIbuValue,
+    choosenMaxIbuValue;
+
+// ABV, IBU search - create two range sliders
+noUiSlider.create(rangeSliderAbvBar, {
+  start: [3, 30],
+  connect: true,
+  range: {
+    min: 0.5,
+    max: 56
+  },
+  step: 0.5
+});
+noUiSlider.create(rangeSliderIbuBar, {
+  start: [30, 530],
+  connect: true,
+  range: {
+    min: 0,
+    max: 1158
+  },
+  step: 1
+});
+
+// ABV, IBU search - create functions to show user search criteria next to range slider
+function showUserAbvChoice(values) {
+    values = values.map(element => {
+        return element
+            .substring(0, element.length-1)
+            .concat('%');
+    });
+    values = values.join(' - ');
+    rangeSliderAbvChoice.innerHTML = `Your choice: ${values}`;
+}
+function showUserIbuChoice(values) {
+    values = values.map(element => {
+        return element.substring(0, element.length-3);
+    });
+    values = values.join(' - ');
+    rangeSliderIbuChoice.innerHTML = `Your choice: ${values}`;   
+}
+
+// ABV, IBU search - create function to get user input from range sliders to be used in fetch 
+function getUserAbvInputs(values) {
+    choosenMinAbvValue = values[0];
+    choosenMaxAbvValue = values[1];
+    return choosenMinAbvValue, choosenMaxAbvValue;
+};
+function getUserIbuInputs(values) {
+    choosenMinIbuValue = values[0];
+    choosenMaxIbuValue = values[1];
+    return choosenMinIbuValue, choosenMaxIbuValue;
+};
+
+// ABV, IBU search - listen for update values on range slider, handle them 
+rangeSliderAbvBar.noUiSlider.on('update', (values) => {
+    showUserAbvChoice(values);
+    getUserAbvInputs(values);
+});
+rangeSliderIbuBar.noUiSlider.on('update', (values) => {
+    showUserIbuChoice(values);
+    getUserIbuInputs(values);
+});
+
+// ABV search - create function fetching data and returning array with data 
 function fetchBeerByAbv(choosenMinAbvValue, choosenMaxAbvValue){
     fetch(`https://api.punkapi.com/v2/beers?abv_gt=${choosenMinAbvValue}&abv_lt=${choosenMaxAbvValue}`)
     .then(response => {
         return response.json();
     })
     .then(data => { 
-        console.log(data);
-        //add here what we want to do with data
+        setResults(data);
     }).catch( error => {
         console.log('Błąd!', error);
     });
 };
 
-// this fetch is needed in searching by ibu 
-
-//  choosenMinIbuValue - choosen min ibu value, choosenMaxIbuValue - choosen max ibu value
-
+// IBU search - create function fetching data and returning array with data 
 function fetchBeerByIbu(choosenMinIbuValue, choosenMaxIbuValue){
     fetch(`https://api.punkapi.com/v2/beers?ibu_gt=${choosenMinIbuValue}&ibu_lt=${choosenMaxIbuValue}`)
     .then(response => {
         return response.json();
     })
     .then(data => { 
-        console.log(data);
-        //add here what we want to do with data
+        setResults(data);
     }).catch( error => {
-        console.log('Błąd!', error);
+        console.log('Error!', error);
     });
 };
+
+// ABV, IBU search - listen for user to click search button and call fetch functions 
+searchByAbvBtn.addEventListener('click', () => fetchBeerByAbv(choosenMinAbvValue, choosenMaxAbvValue));
+searchByIbuBtn.addEventListener('click', () => fetchBeerByIbu(choosenMinIbuValue, choosenMaxIbuValue));
