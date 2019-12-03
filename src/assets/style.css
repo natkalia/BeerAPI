@@ -126,16 +126,15 @@ h5 {
 
 .search-type {
   list-style-type: none;
-  margin: 20px 0;
+  margin: 25px 0;
   display: flex;
-  align-items: center;
 }
 
 .search-type__box {
   pointer-events: none;
   opacity: 0.5;
   display: block;
-  width: 100%;
+  width: 83%;
   margin-left: 25px;
 }
 
@@ -184,7 +183,7 @@ h5 {
 }
 
 .search-by-description__input {
-  margin: 10px 0;
+  margin: 15px 0;
   padding: 5px 10px;
   color: var(--c-neutral-mid-dark);
   font-size: 1.4rem;
@@ -201,6 +200,37 @@ h5 {
   color: #fff;
   font-size: 1.7rem;
   box-shadow: 0 0px 7px rgba(0, 0, 0, 0.15);
+}
+
+@media (min-width: 600px) {
+  .search-type__box {
+    width: 94%;
+    margin-left: auto;
+  }
+
+  .search-type__radio {
+    margin-top: 15px;
+  }
+
+  .search-by-description {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .search-by-description__title {
+    width: 260px;
+  }
+
+  .search-by-description__input {
+    flex: 100%;
+    margin: 0 20px;
+  }
+
+  .search-by-description__btn {
+    padding: 15px;
+  }
+  
 }
 
 /* Search by ABV,IBU */
@@ -227,14 +257,13 @@ h5 {
 }
 
 .range-slider__btn {
-  width: 150px;
   border: none;
   border-radius: 5px;
-  height: 50px;
+  padding: 15px;
   background-color: var(--c-secondary);
   color: #fff;
-  font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+  box-shadow: 0 0px 7px rgba(0, 0, 0, 0.15);
 }
 
 /* Style for nouislider */
@@ -267,11 +296,14 @@ h5 {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    margin: 5px 0px 5px 30px;
   }
 
   .range-slider-bar-with-choice {
     margin: 15px 0;
+    width: 100%;
+  }
+  .range-slider__btn {
+    padding: 5px;
     width: 100%;
   }
 }
