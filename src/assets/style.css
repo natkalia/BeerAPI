@@ -163,7 +163,7 @@ h5 {
 }
 
 .range-slider-bar-with-choice {
-  flex: 70%;
+  flex: 100%;
   margin: 0 20px;
 }
 
@@ -211,14 +211,14 @@ h5 {
 @media (max-width: 600px) {
   .search-type__box.range-slider {
     flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 5px 0px 5px 30px;
   }
 
-  .range-slider__title {
-    text-align: center;
-  }
-
-  .range-slider__btn {
+  .range-slider-bar-with-choice {
     margin: 15px 0;
+    width: 100%;
   }
 }
 
