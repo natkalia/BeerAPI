@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Comfortaa:400,700|Open+Sans:400,400i&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Comfortaa:400,700|Open+Sans:400,400i&display=swap");
 
 :root {
   --f-special: "Comfortaa", cursive;
@@ -48,16 +48,44 @@ h5 {
   font-size: 1.4rem;
 }
 
+p {
+  font-size: 1.6rem;
+}
+
 .container {
   margin: 0 auto;
   width: 90%;
   max-width: 1024px;
 }
 
+.introduction {
+  padding: 3rem;
+  margin-bottom: 5rem;
+  background-color: var(--c-main);
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--c-neutral-mid-light);
+}
+
+.introduction__title {
+  margin-bottom: 3rem;
+  text-shadow: 1px -2px 2px white;
+}
+
+.introduction__title::after {
+  content: "";
+  display: block;
+  max-width: 300px;
+  margin: 2rem auto 2rem auto;
+  height: 4px;
+  background-color: black;
+  box-shadow: -2px 2px 2px white;
+}
+
 .search-results__item {
   display: flex;
   flex-direction: row;
-  margin: 10px 0; 
+  margin: 10px 0;
   list-style-type: none;
   border: 3px solid var(--c-accent);
   border-radius: var(--border-radius);
@@ -106,7 +134,8 @@ h5 {
   overflow: hidden;
 }
 
-.search-results__abv, .search-results__ibu {
+.search-results__abv,
+.search-results__ibu {
   display: inline-block;
   color: var(--c-secondary);
   font-size: 1.4rem;
@@ -141,11 +170,11 @@ h5 {
   font-size: 1.3rem;
 }
 
-@media (min-width: 500px) {  
+@media (min-width: 500px) {
   .search-results__img-wrapper {
     width: 220px;
   }
-  
+
   .search-results__img {
     max-width: 50%;
   }
