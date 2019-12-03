@@ -28,7 +28,7 @@ html {
 }
 
 h1 {
-  font-size: 3.2rem;
+  font-size: 3.6rem;
 }
 
 h2 {
@@ -55,39 +55,48 @@ h5 {
 
 /* Header */
 .header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   background-color: var(--c-neutral-dark);
   color: var(--c-neutral-light);
+  font-family: var(--f-special);
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Header logo */
 .header-logo {
-  flex: 30%;
+  flex: 1;
 }
 
 .header-logo-image {
   height: 200px;
   width: 200px;
-  margin: 0 auto;
-  padding: 5px;
-  background-size: cover;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-color: var(--c-neutral-dark);
   background-image: url('../assets/images/beer-img.png');
 }
 
 /* Header welcome */
 .header-welcome {
-  flex: 70%;
+  flex: 4;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-start; 
+  margin-left: 100px;
 }
 
-/* Header welcome navigation - general*/
+.header-welcome__title {
+  text-shadow: 2px 2px var(--c-accent);
+}
+
+/* Header welcome navigation - general */
 .nav {
   display: flex;
   justify-content: center;
@@ -114,9 +123,7 @@ h5 {
 
 .nav-inner-items__link {
   font-size: 2rem;
-  font-weight: 700;
-  margin-right: 10px;
-  font-family: var(--f-default);
+  margin-right: 15px;
   color: var(--c-neutral-light);
   text-decoration: none;
 }
@@ -133,6 +140,7 @@ h5 {
   height: 60px;
   cursor: pointer;
   transform: rotate(0deg);
+  margin-left: 30px;
 }
  
 .nav-inner-toggler__bar {
@@ -177,8 +185,49 @@ h5 {
   transform: rotate(-135deg);
 }
 
-/* Slider section */
+/* Header media queries */
+@media (max-width: 1200px) {
+  .header-wrapper {
+    flex-direction: column;
+  }
+  .header-welcome {
+    margin-left: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav {
+    flex-direction: column;
+  }
+  .nav__title {
+    margin: 10px 0;
+    text-align: center;
+  }
+  .nav-inner {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav-inner-toggler {
+    margin: 20px 0;
+  }
+  .nav-inner-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 0;
+  }
+  .nav-inner-items__link {
+    font-size: 2.2rem;
+    margin: 5px 0;
+  }
+  .nav-inner.active .nav-inner-items {
+    height: 100%;
+  }
+}
 
+/* Slider section */
 .slider {
   width: 100%;
 }
@@ -385,24 +434,28 @@ h5 {
 
 /* Footer */
 .footer {
-  display: flex;
-  justify-content: space-around;
   background-color: var(--c-neutral-dark);
-  width: 100%;
-  padding: 20px ;
   color: var(--c-neutral-light);
+  width: 100%;
+  padding: 20px 0;
+}
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }
 
 .footer-about__message, .footer-media__message {
   margin-bottom: 2px;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 
 /* Footer about */
 .footer-about-links {
-  font-size: 1.7rem;
+  font-size: 2rem;
   font-weight: 700;
-  padding: 0;
+  font-family: var(--f-special);
+  margin: 20px 0;
 }
 
 .footer-about__link {
@@ -438,7 +491,15 @@ h5 {
 .footer-media {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  border-left: 3px solid var(--c-neutral-light);
+  padding-left: 30px;
+}
+.footer-media__message {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: var(--f-special);
+  margin: 20px 0;
 }
 
 .footer-media__icon  {
@@ -458,4 +519,43 @@ h5 {
 .footer-media__icon:hover {
   transform: scale(1.1);
   border-color: var(--c-secondary);
+}
+
+/* Footer media queries */
+@media (max-width: 600px) {
+  .footer {
+    padding: 5px 0;
+  }
+
+  .footer .container {
+    flex-direction: column;
+  }
+
+  .footer-about {
+    margin: 10px auto;
+  }
+
+  .footer-about-links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: flex-start;
+    margin: 10px 0;
+    font-size: 2rem;
+  }
+
+  .footer-about__link {
+    margin: 4px 0;
+  }
+
+  .footer-media {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-left: none;
+    border-top: 3px solid var(--c-neutral-light);
+    padding: 30px 0;
+    align-items: center;
+    }
 }
