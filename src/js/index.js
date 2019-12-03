@@ -1,4 +1,11 @@
 import '../assets/style.css';
+import "slick-carousel";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+// Imports for range sliders used in ABV, IBU search
+import * as noUiSlider from 'nouislider/distribute/nouislider.js';
+import 'nouislider/distribute/nouislider.css';
 
 // header hamburger menu behavior
 const navInner = document.getElementById('nav-inner');
@@ -14,13 +21,6 @@ navToggler.addEventListener('click', function() {
     navTitle.innerText = "I feel like searching for a beer by...";
   }
 });
-import "../assets/style.css";
-import "slick-carousel";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-// Imports for range sliders used in ABV, IBU search
-import * as noUiSlider from 'nouislider/distribute/nouislider.js';
-import 'nouislider/distribute/nouislider.css';
 
 class Slider {
   constructor() {
