@@ -2,18 +2,17 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Beer Finder App</title>
 </head>
 
 <body>
-
   <header class="header">
     <div class="header-logo">
       <div class="header-logo-image">
-        <img class="header-logo-image__img" src="">
+        <img class="header-logo-image__img" src="" />
       </div>
     </div>
     <div class="header-welcome">
@@ -38,7 +37,6 @@
   </header>
 
   <main>
-
     <div class="container">
 
       <section class="introduction">
@@ -48,37 +46,53 @@
           reprehenderit!</p>
       </section>
       
-      <ul>
-        <li class="search-type">
-          <input type="radio" checked name="search" class="search-type__radio" id="description"/>
-          <label id="search-by-description" for="description" class="search-type__box">
-            <h3>Search beer by description</h3>
-            <input id="search-by-description-input" type="text"/>
-            <button id="search-by-description-btn">Search</button>
-          </label>
-        </li>
-        <li class="search-type">
-          <input type="radio" name="search" class="search-type__radio" id="abv"/>
-          <label id="search-by-abv" for="abv" class="search-type__box">
-            <h3>Alcohol by volume</h3>
-            <div id="range-slider-abv-choice"></div>
-            <div id="range-slider-abv-bar"></div>
-            <button id="search-by-abv-btn">Search</button>
-          </label>
-        </li>
-        <li class="search-type">
-          <input type="radio" name="search" class="search-type__radio" id="ibu"/>
-          <label id="search-by-ibu" for="ibu" class="search-type__box">
-            <h3>International Bittering Units</h3>
-            <div id="range-slider-ibu-choice"></div>
-            <div id="range-slider-ibu-bar"></div>
-            <button id="search-by-ibu-btn">Search</button>
-          </label>
-        </li> 
-      </ul>
-      
-      <ul id="search-results" class="search-results"></ul>
-        
+      <section class="slider slick">
+        <div class="slider__item-1 slide">
+          <div class="slider__item-content"></div>
+        </div>
+        <div class="slider__item-2 slide is-hidden">
+          <div class="slider__item-content"></div>
+        </div>
+        <div class="slider__item-3 slide is-hidden">
+          <div class="slider__item-content"></div>
+        </div>
+      </section>
+
+      <section>
+        <ul>
+          <li class="search-type">
+            <input type="radio" checked name="search" class="search-type__radio" id="description"/>
+            <label id="search-by-description" for="description" class="search-type__box">
+              <h3>Search beer by description</h3>
+              <input id="search-by-description-input" type="text"/>
+              <button id="search-by-description-btn">Search</button>
+            </label>
+          </li>
+          <li class="search-type">
+            <input type="radio" name="search" class="search-type__radio" id="abv"/>
+            <label id="search-by-abv" for="abv" class="search-type__box">
+              <h3>Alcohol by volume</h3>
+              <div id="range-slider-abv-choice"></div>
+              <div id="range-slider-abv-bar"></div>
+              <button id="search-by-abv-btn">Search</button>
+            </label>
+          </li>
+          <li class="search-type">
+            <input type="radio" name="search" class="search-type__radio" id="ibu"/>
+            <label id="search-by-ibu" for="ibu" class="search-type__box">
+              <h3>International Bittering Units</h3>
+              <div id="range-slider-ibu-choice"></div>
+              <div id="range-slider-ibu-bar"></div>
+              <button id="search-by-ibu-btn">Search</button>
+            </label>
+          </li> 
+        </ul>
+      </section>
+
+      <section>
+        <ul id="search-results" class="search-results"></ul>
+      </section>
+
     </div>
   </main>
 
