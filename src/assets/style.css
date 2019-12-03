@@ -158,7 +158,8 @@ h5 {
 }
 
 .range-slider__title {
-  width: 240px;
+  width: 260px;
+  text-align: left;
 }
 
 .range-slider-bar-with-choice {
@@ -177,7 +178,7 @@ h5 {
   border-radius: 5px;
   height: 50px;
   background-color: var(--c-secondary);
-  color: var(--c-neutral-light);
+  color: #fff;
   font-weight: 700;
   font-size: 1.5rem;
 }
@@ -203,6 +204,23 @@ h5 {
 
 .noUi-base .noUi-handle::after {
   display: none;
+}
+
+
+/* Search ABV, IBU - media queries */
+
+@media (max-width: 600px) {
+  .search-type__box.range-slider {
+    flex-direction: column;
+  }
+
+  .range-slider__title {
+    text-align: center;
+  }
+
+  .range-slider__btn {
+    margin: 15px 0;
+  }
 }
 
 .search-results__item {
