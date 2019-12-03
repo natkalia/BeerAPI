@@ -17,7 +17,6 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -58,6 +57,7 @@ p {
   max-width: 1024px;
 }
 
+<<<<<<< HEAD
 .introduction {
   padding: 3rem;
   margin-bottom: 5rem;
@@ -82,6 +82,179 @@ p {
   box-shadow: -2px 2px 2px white;
 }
 
+=======
+.slider {
+  width: 100%;
+}
+
+.slide {
+  width: 100%;
+  height: 500px;
+  background-color: lightgray;
+}
+
+.is-hidden {
+  display: none;
+}
+
+.slider__item-1 {
+  background-image: url("./images/slide-img-1.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+
+.slider__item-2 {
+  background-image: url("./images/slide-img-2.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+
+.slider__item-3 {
+  background-image: url("./images/slide-img-3.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+
+.slider__item-content {}
+
+.slider__item-title {}
+
+.slider__item-subtitle {}
+
+.slider__item-description {}
+
+/* All search types */
+
+.search-type {
+  list-style-type: none;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+}
+
+.search-type__box {
+  pointer-events: none;
+  opacity: 0.5;
+  display: block;
+  width: 100%;
+  margin-left: 25px;
+}
+
+.search-type__radio {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  margin-top: 5px;
+}
+
+.search-type__radio:after {
+  position: absolute;
+  content: "";
+  top: -2px;
+  left: -2px;
+  background-color: #fff;
+  border: 2px solid var(--c-main);
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.search-type__radio:checked::before {
+  position: absolute;
+  content: "";
+  top: 3px;
+  left: 3px;
+  background-color: var(--c-main);
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.search-type__radio:checked ~ .search-type__box {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+/* Search by ABV,IBU */
+
+.search-type__box.range-slider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.range-slider__title {
+  width: 260px;
+  text-align: left;
+}
+
+.range-slider-bar-with-choice {
+  flex: 100%;
+  margin: 0 20px;
+}
+
+.range-slider__choice {
+  padding-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.range-slider__btn {
+  width: 150px;
+  border: none;
+  border-radius: 5px;
+  height: 50px;
+  background-color: var(--c-secondary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+/* Style for nouislider */
+
+.noUi-base .noUi-connect {
+  background-color: var(--c-accent);
+}
+
+.noUi-horizontal .noUi-base .noUi-handle {
+  background-color: var(--c-neutral-mid-dark);
+  border: 3px solid white;
+  border-radius: 50%; 
+  box-shadow: none;
+  width: 28px; 
+  height: 28px;
+}
+
+.noUi-base .noUi-handle::before {
+  background: transparent;
+}
+
+.noUi-base .noUi-handle::after {
+  display: none;
+}
+
+/* Search ABV, IBU - media queries */
+
+@media (max-width: 600px) {
+  .search-type__box.range-slider {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 5px 0px 5px 30px;
+  }
+
+  .range-slider-bar-with-choice {
+    margin: 15px 0;
+    width: 100%;
+  }
+}
+
+/* Show results section */
+
+>>>>>>> 2c25537f212c0acf7f2b830262b907fe6c80936f
 .search-results__item {
   display: flex;
   flex-direction: row;
