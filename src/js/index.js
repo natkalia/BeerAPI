@@ -22,6 +22,8 @@ navToggler.addEventListener('click', function() {
   }
 });
 
+// Slider
+
 class Slider {
   constructor() {
     this.init();
@@ -90,7 +92,7 @@ class Slider {
 
 const slider = new Slider();
 
-// search results - warning! this function takes array as a parameter
+// Search results
 
 const searchReasultsBox = document.getElementById('search-results');
 
@@ -162,7 +164,7 @@ function fetchBeerByName(beerProperty) {
       setResults(results);
     })
     .catch(error => {
-      console.log("Błąd!", error);
+      console.log("Error!", error);
     });
 }
 
@@ -283,7 +285,7 @@ function fetchBeerByAbv(choosenMinAbvValue, choosenMaxAbvValue){
     .then(data => { 
         setResults(data);
     }).catch( error => {
-        console.log('Błąd!', error);
+        console.log('Error!', error);
     });
 }
 
