@@ -206,7 +206,6 @@ h5 {
   display: none;
 }
 
-
 /* Search ABV, IBU - media queries */
 
 @media (max-width: 600px) {
@@ -222,6 +221,8 @@ h5 {
     margin: 15px 0;
   }
 }
+
+/* Show results section */
 
 .search-results__item {
   display: flex;
