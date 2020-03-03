@@ -21,7 +21,11 @@ The app displays results in form of cards with beers matching selected criterion
 - Agata and her [Github](https://github.com/ceglarzagata)
 - Ania and her [Github](https://github.com/apiwonska)
 - Natalia and her [Github](https://github.com/natkalia)
-	
+
+## Teaser
+
+![beerAPI](https://user-images.githubusercontent.com/49140572/75766800-00bf8e80-5d42-11ea-9456-0f44af693fc3.gif)
+
 ## Project technologies and tools
 
 The app is built with the following technologies and tools:
