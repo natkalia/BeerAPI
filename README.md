@@ -78,7 +78,7 @@ npm install
 ```
 If the previous commands was executed successfully, it's time to start our app with the following command:
 ```bash
-npm start
+npm watch
 ```
 As a result you should be taken to a browser with our application running on localhost. Now you are ready to work!
 
