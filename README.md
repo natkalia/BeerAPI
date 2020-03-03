@@ -2,6 +2,14 @@
 
 Group project created for CodersCamp 2019 (part of Team Warsaw). :beer:
 
+Project originally created: 
+
+CodersCamp finished in January 2020, but I am still coming back to this project to improve code and features in this forked repo.
+
+## Live
+
+Github Pages: [https://natkalia.github.io/BeerAPI/]([https://natkalia.github.io/BeerAPI/)
+
 ## Description 
 
 Beer Finder App is a website which connects to Punk API (https://punkapi.com/documentation/v2) in order to get beer data based on different criteria provided by the user. 
@@ -25,6 +33,7 @@ The app is built with the following technologies and tools:
 5. Babel
 6. noUiSlider, Slick slider
 7. Trello for project and tasks management
+8. Deployment on Github Pages
 
 ## Project requirements
 
@@ -42,12 +51,14 @@ The app was created according to CodersCamp guidelines that it should demonstrat
 ## App features
 
 You can search for beers matching one of the following criteria:
+
 * beer name
 * beer description
 * alcohol by volume (ABV)
 * International Bittering Units (IBU)
 
 You will see search results with data relating to the above-mentioned criteria like name, ABV etc., and additionally:
+
 * a tagline (teaser) about chosen beer
 * food pairing advice
 
@@ -55,7 +66,7 @@ You will see search results with data relating to the above-mentioned criteria l
 
 If you want to run our app at your local machine you have to clone this repository or just download zip file and unzip it locally. This is up to you. If you decide to clone this repo, you should use the below command in your command line tool: 
 ```bash
-git clone https://github.com/dobrzyckahanna/BeerAPI.git
+git clone https://github.com/natkalia/BeerAPI.git
 ```
 After, move to the main folder of the app and use the following command which retrieves all dependencies necessary to build our application:
 ```bash
