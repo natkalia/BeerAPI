@@ -2,13 +2,13 @@
 
 Group project created for CodersCamp 2019 (part of Team Warsaw). :beer:
 
-Project originally created: 
+Project originally created by our team: [https://github.com/dobrzyckahanna/BeerAPI](https://github.com/dobrzyckahanna/BeerAPI)
 
 CodersCamp finished in January 2020, but I am still coming back to this project to improve code and features in this forked repo.
 
-## Live
+## Live demo
 
-Github Pages: [https://natkalia.github.io/BeerAPI/]([https://natkalia.github.io/BeerAPI/)
+Github Pages: [https://natkalia.github.io/BeerAPI/](https://natkalia.github.io/BeerAPI/)
 
 ## Description 
 
