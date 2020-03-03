@@ -7,7 +7,7 @@ const distDir = path.resolve(__dirname, "docs");
 module.exports = {
   entry: ["@babel/polyfill", "./src/js/index.js"],
   output: {
-    filename: "index.js",
+    filename: "bundle.js",
     path: distDir
   },
   plugins: [
@@ -43,7 +43,12 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: ['file-loader']
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "images/[name].[ext]"
+          }
+        }
       },
       {
         test: /\.(ttf|eot|woff|woff2)$/,

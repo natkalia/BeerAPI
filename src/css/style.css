@@ -89,7 +89,7 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-color: var(--c-neutral-dark);
-  background-image: url("../assets/images/beer-img.png");
+  background-image: url("../images/beer-img.png");
 }
 
 /* Header welcome */
@@ -297,19 +297,19 @@ body {
 }
 
 .slider__item-1 {
-  background-image: url("./images/slide-img-1.jpg");
+  background-image: url("../images/slide-img-1.jpg");
   background-position: center center;
   background-size: cover;
 }
 
 .slider__item-2 {
-  background-image: url("./images/slide-img-2.jpg");
+  background-image: url("../images/slide-img-2.jpg");
   background-position: center center;
   background-size: cover;
 }
 
 .slider__item-3 {
-  background-image: url("./images/slide-img-3.jpg");
+  background-image: url("../images/slide-img-3.jpg");
   background-position: center center;
   background-size: cover;
 }

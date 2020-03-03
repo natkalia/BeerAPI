@@ -1,4 +1,4 @@
-import "../assets/style.css";
+import "../css/style.css";
 import "slick-carousel";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
